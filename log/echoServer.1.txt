@@ -1,0 +1,9 @@
+[2020-05-02 11:47:57.219285][INFO][140181431748416][/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/src/TcpServer.cpp:onAccept:55] [Server] New Connection(192.168.0.108:33190)
+[2020-05-02 11:47:58.881200][WARN][140181431748416][/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/src/Connection.cpp:onMessageRecv:55] [Connection] Message receive fail(connection reset by peer)
+
+[2020-05-02 11:47:59.857709][INFO][140181431748416][/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/src/TcpServer.cpp:onAccept:55] [Server] New Connection(192.168.0.108:33192)
+[2020-05-02 11:48:02.168178][WARN][140181431748416][/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/src/Connection.cpp:onMessageRecv:55] [Connection] Message receive fail(connection reset by peer)
+
+[2020-05-02 11:48:04.367951][INFO][140181431748416][/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/src/TcpServer.cpp:onAccept:55] [Server] New Connection(192.168.0.108:33194)
+[2020-05-02 11:48:05.149560][WARN][140181431748416][/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/src/Connection.cpp:onMessageRecv:55] [Connection] Message receive fail(connection reset by peer)
+

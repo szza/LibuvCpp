@@ -1,0 +1,12 @@
+/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build/CMakeFiles/edit_cache.dir
+/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build/CMakeFiles/rebuild_cache.dir
+/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build/src/CMakeFiles/edit_cache.dir
+/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build/src/CMakeFiles/libuvCpp.dir
+/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build/src/CMakeFiles/rebuild_cache.dir
+/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build/example/CMakeFiles/edit_cache.dir
+/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build/example/CMakeFiles/rebuild_cache.dir
+/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build/example/CMakeFiles/helloWorld.dir
+/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build/example/CMakeFiles/async.dir
+/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build/example/CMakeFiles/client.dir
+/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build/example/CMakeFiles/server.dir
+/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build/example/CMakeFiles/radix.dir
