@@ -90,7 +90,7 @@ async_EXTERNAL_OBJECTS =
 
 bin/async: example/CMakeFiles/async.dir/base/async_.cc.o
 bin/async: example/CMakeFiles/async.dir/build.make
-bin/async: lib/liblibuvCpp.a
+bin/async: lib/libLibuvCpp.a
 bin/async: example/CMakeFiles/async.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/async"
 	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build/example && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/async.dir/link.txt --verbose=$(VERBOSE)

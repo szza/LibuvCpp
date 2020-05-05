@@ -8,103 +8,124 @@ using namespace uv::http;
 HttpServer::HttpServer(EventLoop* loop) 
 : TcpServer(loop)
 { 
-  this->setMessageCallback(std::bind(&HttpServer::onMessage, 
+  this->setkeepLive(true);
+  this->setMessageCallback(std::bind(&HttpServer::onMessageRecv, 
                                      this,
                                      std::placeholders::_1,
                                      std::placeholders::_2,
                                      std::placeholders::_3));
 }
 
-void HttpServer::onMessage(ConnectionPtr connPtr, const char* buf, ssize_t size) { 
-  std::shared_ptr<Buffer> packBuff = connPtr->getPackBuffer();
-  if(packBuff ==nullptr) 
+void HttpServer::onMessageRecv(ConnectionPtr connPtr, const char* buf, ssize_t size) { 
+  LOG_INFO<<"[HttpServer] Receive data:\n"<<buf;
+
+  std::shared_ptr<Buffer> buffer = connPtr->getPackBuffer();
+  if(buffer ==nullptr) 
   {
     LOG_WARN<<"[Http Server] <class Connection> fail to create <class Buffer> object.";
     return;
   }
-  packBuff->append(buf, size);
+
+  buffer->append(buf, size);
 
   std::string dest;
+  buffer->readBufferN(dest, buffer->readableSize());
+  
   Request req;
-
-  packBuff->readBufferN(dest, packBuff->readableSize());
-  packBuff->clear();
   ParseResult status = req.parseAndComplete(dest);
 
-  
-  if(status== ParseResult::Success) {
-    OnHttpReqCallback callback; 
+  if(status == ParseResult::Error) {
+    LOG_WARN<<"[HttpServer] Parse Error.";
+    buffer->clear(); 
+  }
+  else if(status== ParseResult::Success) {
+    buffer->clear();
+    
+    OnHttpReqCallback callback;
+    auto& path   = req.path();
+    auto& reqMap = route_[req.methodToNum()];
+   
+    if(reqMap.count(path) && (callback = reqMap[path])) {
 
-    if(route_[req.methodToNum()].get(req.path(), callback) && callback) {
-        const std::string& connName = connPtr->name();
-        Response resp;
-        std::string respData;
+      const std::string& connName = connPtr->name();
+      Response resp;
+      callback(req, &resp);
 
-        callback(req, &resp);
-        resp.encode(respData);
-        LOG_INFO<<"response data: "<<respData;
+      std::string respInfo;
+      resp.encode(respInfo);
+      LOG_INFO<<"[HttpServer] Response data:\n"<<respInfo;
 
-        connPtr->write(respData.c_str(), 
-                       respData.size(), 
-                       [this, connName](WriteInfo& )
-                       { 
-                         closeConnection(connName);
-                       });
+      connPtr->write(respInfo.c_str(), 
+                      respInfo.size(), 
+                      [this, connName](WriteInfo& )
+                      { 
+                        closeConnection(connName);
+                      });
+    }
+    else 
+    {
+      if(reqMap.count(path) ==0)
+      {
+        LOG_WARN<<"[HttpServer]"<<"Request("<<req.methodToStr(req.method())<<" "<<path<<")not exist";
+      }
+      else 
+      {
+        LOG_WARN<<"[HttpServer] should set response callback for this request";
+      }
     }
   }
-  
 }
 
-template<typename String>
-void HttpServer::Get(String&& path, OnHttpReqCallback callback)
-{
-    route_[RequestMethon::Get].set(path, callback);
+
+void HttpServer::Get(std::string path, OnHttpReqCallback callback)
+{ 
+  route_[0].emplace(path, std::move(callback));
 }
 
-template<typename String>
-void HttpServer::Post(String&& path, OnHttpReqCallback callback)
-{
-    route_[RequestMethon::Post].set(path, callback);
+
+void HttpServer::Post(std::string path, OnHttpReqCallback callback)
+{ 
+  route_[1].emplace(path, std::move(callback));
 }
 
-template<typename String>
-void HttpServer::Head(String&& path, OnHttpReqCallback callback)
-{
-    route_[RequestMethon::Head].set(path, callback);
+
+void HttpServer::Head(std::string path, OnHttpReqCallback callback)
+{ 
+  route_[2].emplace(path, std::move(callback));
 }
 
-template<typename String>
-void HttpServer::Put(String&& path, OnHttpReqCallback callback)
-{
-    route_[RequestMethon::Put].set(path, callback);
+
+void HttpServer::Put(std::string path, OnHttpReqCallback callback)
+{ 
+  route_[3].emplace(path, std::move(callback));
 }
 
-template<typename String>
-void HttpServer::Delete(String&& path, OnHttpReqCallback callback)
-{
-    route_[RequestMethon::Delete].set(path, callback);
+
+void HttpServer::Delete(std::string path, OnHttpReqCallback callback)
+{ 
+  route_[4].emplace(path, std::move(callback));
 }
 
-template<typename String>
-void HttpServer::Connect(String&& path, OnHttpReqCallback callback)
-{
-    route_[RequestMethon::Connect].set(path, callback);
+
+void HttpServer::Connect(std::string path, OnHttpReqCallback callback)
+{ 
+  route_[5].emplace(path, std::move(callback));
 }
 
-template<typename String>
-void HttpServer::Options(String&& path, OnHttpReqCallback callback)
-{
-    route_[RequestMethon::Options].set(path, callback);
+
+void HttpServer::Options(std::string path, OnHttpReqCallback callback)
+{   
+  route_[6].emplace(path, std::move(callback));
 }
 
-template<typename String>
-void HttpServer::Trace(String&& path, OnHttpReqCallback callback)
+
+void HttpServer::Trace(std::string path, OnHttpReqCallback callback)
 {
-    route_[RequestMethon::Trace].set(path, callback);
+  route_[7].emplace(path, std::move(callback));
 }
 
-template<typename String>
-void HttpServer::Patch(String&& path, OnHttpReqCallback callback)
+
+void HttpServer::Patch(std::string path, OnHttpReqCallback callback)
 {
-    route_[RequestMethon::Patch].set(path, callback);
+  route_[8].emplace(path, std::move(callback));
 }

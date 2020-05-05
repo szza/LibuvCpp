@@ -35,6 +35,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build/src/cmake_install.cmake")
+  include("/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build/src/Http/cmake_install.cmake")
   include("/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build/example/cmake_install.cmake")
 
 endif()

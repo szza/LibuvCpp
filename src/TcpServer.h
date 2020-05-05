@@ -25,7 +25,7 @@ public:
   void closeConnection(const std::string& name);
   
   ConnectionPtr getConnection(const std::string& name);
-
+  void setkeepLive(bool on)                              { keepLive_ = on;                  }
   void setTimeout(uint32_t seconds)                      { timerwheel_.setTimeout(seconds); }
   void setMessageCallback(OnMessageCallback cb)          { onMessageCallback_         = cb; }
   void setNewConnectionCallback(ConnectionCallback cb)   { onNewConnectionCallback_   = cb; }
@@ -51,6 +51,7 @@ private:
   ConnectionCallback onCloseConnectionCallback_;
 
   TimerWheel timerwheel_;
+  bool keepLive_;
 }; // class TcpServer
 
 } // namespace uv

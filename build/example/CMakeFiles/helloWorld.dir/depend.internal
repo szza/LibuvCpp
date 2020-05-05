@@ -3,7 +3,6 @@
 
 example/CMakeFiles/helloWorld.dir/HelloWorld/HelloWorld.cc.o
  ..//src/Http/Internel.h
- ..//src/Http/RadixTree.h
  ..//src/Http/Request.h
  ..//src/Http/Response.h
  ..//src/TcpClient.h
@@ -17,13 +16,10 @@ example/CMakeFiles/helloWorld.dir/HelloWorld/HelloWorld.cc.o
  ../src/EventLoop.h
  ../src/Http/HttpClient.h
  ../src/Http/HttpServer.h
- ../src/Http/Internel.h
- ../src/Http/RadixTree.h
  ../src/Http/Request.h
  ../src/Http/Response.h
  ../src/Idle.h
  ../src/NanoLog.h
- ../src/Packet.h
  ../src/Signal.h
  ../src/TcpClient.h
  ../src/TcpServer.h

@@ -111,19 +111,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-src/CMakeFiles/libuvCpp.dir/rule:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/libuvCpp.dir/rule
-.PHONY : src/CMakeFiles/libuvCpp.dir/rule
+src/CMakeFiles/LibuvCpp.dir/rule:
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/LibuvCpp.dir/rule
+.PHONY : src/CMakeFiles/LibuvCpp.dir/rule
 
 # Convenience name for target.
-libuvCpp: src/CMakeFiles/libuvCpp.dir/rule
+LibuvCpp: src/CMakeFiles/LibuvCpp.dir/rule
 
-.PHONY : libuvCpp
+.PHONY : LibuvCpp
 
 # fast build rule for target.
-libuvCpp/fast:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/build
-.PHONY : libuvCpp/fast
+LibuvCpp/fast:
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/build
+.PHONY : LibuvCpp/fast
 
 Acceptor.o: Acceptor.cpp.o
 
@@ -131,7 +131,7 @@ Acceptor.o: Acceptor.cpp.o
 
 # target to build an object file
 Acceptor.cpp.o:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/Acceptor.cpp.o
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/Acceptor.cpp.o
 .PHONY : Acceptor.cpp.o
 
 Acceptor.i: Acceptor.cpp.i
@@ -140,7 +140,7 @@ Acceptor.i: Acceptor.cpp.i
 
 # target to preprocess a source file
 Acceptor.cpp.i:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/Acceptor.cpp.i
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/Acceptor.cpp.i
 .PHONY : Acceptor.cpp.i
 
 Acceptor.s: Acceptor.cpp.s
@@ -149,7 +149,7 @@ Acceptor.s: Acceptor.cpp.s
 
 # target to generate assembly for a file
 Acceptor.cpp.s:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/Acceptor.cpp.s
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/Acceptor.cpp.s
 .PHONY : Acceptor.cpp.s
 
 Async.o: Async.cpp.o
@@ -158,7 +158,7 @@ Async.o: Async.cpp.o
 
 # target to build an object file
 Async.cpp.o:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/Async.cpp.o
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/Async.cpp.o
 .PHONY : Async.cpp.o
 
 Async.i: Async.cpp.i
@@ -167,7 +167,7 @@ Async.i: Async.cpp.i
 
 # target to preprocess a source file
 Async.cpp.i:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/Async.cpp.i
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/Async.cpp.i
 .PHONY : Async.cpp.i
 
 Async.s: Async.cpp.s
@@ -176,7 +176,7 @@ Async.s: Async.cpp.s
 
 # target to generate assembly for a file
 Async.cpp.s:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/Async.cpp.s
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/Async.cpp.s
 .PHONY : Async.cpp.s
 
 Buffer.o: Buffer.cpp.o
@@ -185,7 +185,7 @@ Buffer.o: Buffer.cpp.o
 
 # target to build an object file
 Buffer.cpp.o:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/Buffer.cpp.o
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/Buffer.cpp.o
 .PHONY : Buffer.cpp.o
 
 Buffer.i: Buffer.cpp.i
@@ -194,7 +194,7 @@ Buffer.i: Buffer.cpp.i
 
 # target to preprocess a source file
 Buffer.cpp.i:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/Buffer.cpp.i
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/Buffer.cpp.i
 .PHONY : Buffer.cpp.i
 
 Buffer.s: Buffer.cpp.s
@@ -203,7 +203,7 @@ Buffer.s: Buffer.cpp.s
 
 # target to generate assembly for a file
 Buffer.cpp.s:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/Buffer.cpp.s
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/Buffer.cpp.s
 .PHONY : Buffer.cpp.s
 
 Connection.o: Connection.cpp.o
@@ -212,7 +212,7 @@ Connection.o: Connection.cpp.o
 
 # target to build an object file
 Connection.cpp.o:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/Connection.cpp.o
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/Connection.cpp.o
 .PHONY : Connection.cpp.o
 
 Connection.i: Connection.cpp.i
@@ -221,7 +221,7 @@ Connection.i: Connection.cpp.i
 
 # target to preprocess a source file
 Connection.cpp.i:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/Connection.cpp.i
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/Connection.cpp.i
 .PHONY : Connection.cpp.i
 
 Connection.s: Connection.cpp.s
@@ -230,7 +230,7 @@ Connection.s: Connection.cpp.s
 
 # target to generate assembly for a file
 Connection.cpp.s:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/Connection.cpp.s
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/Connection.cpp.s
 .PHONY : Connection.cpp.s
 
 EventLoop.o: EventLoop.cpp.o
@@ -239,7 +239,7 @@ EventLoop.o: EventLoop.cpp.o
 
 # target to build an object file
 EventLoop.cpp.o:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/EventLoop.cpp.o
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/EventLoop.cpp.o
 .PHONY : EventLoop.cpp.o
 
 EventLoop.i: EventLoop.cpp.i
@@ -248,7 +248,7 @@ EventLoop.i: EventLoop.cpp.i
 
 # target to preprocess a source file
 EventLoop.cpp.i:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/EventLoop.cpp.i
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/EventLoop.cpp.i
 .PHONY : EventLoop.cpp.i
 
 EventLoop.s: EventLoop.cpp.s
@@ -257,7 +257,7 @@ EventLoop.s: EventLoop.cpp.s
 
 # target to generate assembly for a file
 EventLoop.cpp.s:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/EventLoop.cpp.s
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/EventLoop.cpp.s
 .PHONY : EventLoop.cpp.s
 
 NanoLog.o: NanoLog.cpp.o
@@ -266,7 +266,7 @@ NanoLog.o: NanoLog.cpp.o
 
 # target to build an object file
 NanoLog.cpp.o:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/NanoLog.cpp.o
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/NanoLog.cpp.o
 .PHONY : NanoLog.cpp.o
 
 NanoLog.i: NanoLog.cpp.i
@@ -275,7 +275,7 @@ NanoLog.i: NanoLog.cpp.i
 
 # target to preprocess a source file
 NanoLog.cpp.i:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/NanoLog.cpp.i
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/NanoLog.cpp.i
 .PHONY : NanoLog.cpp.i
 
 NanoLog.s: NanoLog.cpp.s
@@ -284,7 +284,7 @@ NanoLog.s: NanoLog.cpp.s
 
 # target to generate assembly for a file
 NanoLog.cpp.s:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/NanoLog.cpp.s
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/NanoLog.cpp.s
 .PHONY : NanoLog.cpp.s
 
 Packet.o: Packet.cpp.o
@@ -293,7 +293,7 @@ Packet.o: Packet.cpp.o
 
 # target to build an object file
 Packet.cpp.o:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/Packet.cpp.o
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/Packet.cpp.o
 .PHONY : Packet.cpp.o
 
 Packet.i: Packet.cpp.i
@@ -302,7 +302,7 @@ Packet.i: Packet.cpp.i
 
 # target to preprocess a source file
 Packet.cpp.i:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/Packet.cpp.i
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/Packet.cpp.i
 .PHONY : Packet.cpp.i
 
 Packet.s: Packet.cpp.s
@@ -311,7 +311,7 @@ Packet.s: Packet.cpp.s
 
 # target to generate assembly for a file
 Packet.cpp.s:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/Packet.cpp.s
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/Packet.cpp.s
 .PHONY : Packet.cpp.s
 
 Signal.o: Signal.cpp.o
@@ -320,7 +320,7 @@ Signal.o: Signal.cpp.o
 
 # target to build an object file
 Signal.cpp.o:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/Signal.cpp.o
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/Signal.cpp.o
 .PHONY : Signal.cpp.o
 
 Signal.i: Signal.cpp.i
@@ -329,7 +329,7 @@ Signal.i: Signal.cpp.i
 
 # target to preprocess a source file
 Signal.cpp.i:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/Signal.cpp.i
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/Signal.cpp.i
 .PHONY : Signal.cpp.i
 
 Signal.s: Signal.cpp.s
@@ -338,7 +338,7 @@ Signal.s: Signal.cpp.s
 
 # target to generate assembly for a file
 Signal.cpp.s:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/Signal.cpp.s
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/Signal.cpp.s
 .PHONY : Signal.cpp.s
 
 TcpClient.o: TcpClient.cpp.o
@@ -347,7 +347,7 @@ TcpClient.o: TcpClient.cpp.o
 
 # target to build an object file
 TcpClient.cpp.o:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/TcpClient.cpp.o
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/TcpClient.cpp.o
 .PHONY : TcpClient.cpp.o
 
 TcpClient.i: TcpClient.cpp.i
@@ -356,7 +356,7 @@ TcpClient.i: TcpClient.cpp.i
 
 # target to preprocess a source file
 TcpClient.cpp.i:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/TcpClient.cpp.i
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/TcpClient.cpp.i
 .PHONY : TcpClient.cpp.i
 
 TcpClient.s: TcpClient.cpp.s
@@ -365,7 +365,7 @@ TcpClient.s: TcpClient.cpp.s
 
 # target to generate assembly for a file
 TcpClient.cpp.s:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/TcpClient.cpp.s
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/TcpClient.cpp.s
 .PHONY : TcpClient.cpp.s
 
 TcpServer.o: TcpServer.cpp.o
@@ -374,7 +374,7 @@ TcpServer.o: TcpServer.cpp.o
 
 # target to build an object file
 TcpServer.cpp.o:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/TcpServer.cpp.o
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/TcpServer.cpp.o
 .PHONY : TcpServer.cpp.o
 
 TcpServer.i: TcpServer.cpp.i
@@ -383,7 +383,7 @@ TcpServer.i: TcpServer.cpp.i
 
 # target to preprocess a source file
 TcpServer.cpp.i:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/TcpServer.cpp.i
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/TcpServer.cpp.i
 .PHONY : TcpServer.cpp.i
 
 TcpServer.s: TcpServer.cpp.s
@@ -392,7 +392,7 @@ TcpServer.s: TcpServer.cpp.s
 
 # target to generate assembly for a file
 TcpServer.cpp.s:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/TcpServer.cpp.s
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/TcpServer.cpp.s
 .PHONY : TcpServer.cpp.s
 
 Timer.o: Timer.cpp.o
@@ -401,7 +401,7 @@ Timer.o: Timer.cpp.o
 
 # target to build an object file
 Timer.cpp.o:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/Timer.cpp.o
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/Timer.cpp.o
 .PHONY : Timer.cpp.o
 
 Timer.i: Timer.cpp.i
@@ -410,7 +410,7 @@ Timer.i: Timer.cpp.i
 
 # target to preprocess a source file
 Timer.cpp.i:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/Timer.cpp.i
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/Timer.cpp.i
 .PHONY : Timer.cpp.i
 
 Timer.s: Timer.cpp.s
@@ -419,7 +419,7 @@ Timer.s: Timer.cpp.s
 
 # target to generate assembly for a file
 Timer.cpp.s:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/Timer.cpp.s
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/Timer.cpp.s
 .PHONY : Timer.cpp.s
 
 TimerWheel.o: TimerWheel.cpp.o
@@ -428,7 +428,7 @@ TimerWheel.o: TimerWheel.cpp.o
 
 # target to build an object file
 TimerWheel.cpp.o:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/TimerWheel.cpp.o
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/TimerWheel.cpp.o
 .PHONY : TimerWheel.cpp.o
 
 TimerWheel.i: TimerWheel.cpp.i
@@ -437,7 +437,7 @@ TimerWheel.i: TimerWheel.cpp.i
 
 # target to preprocess a source file
 TimerWheel.cpp.i:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/TimerWheel.cpp.i
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/TimerWheel.cpp.i
 .PHONY : TimerWheel.cpp.i
 
 TimerWheel.s: TimerWheel.cpp.s
@@ -446,7 +446,7 @@ TimerWheel.s: TimerWheel.cpp.s
 
 # target to generate assembly for a file
 TimerWheel.cpp.s:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/TimerWheel.cpp.s
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/TimerWheel.cpp.s
 .PHONY : TimerWheel.cpp.s
 
 # Help Target
@@ -456,7 +456,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
-	@echo "... libuvCpp"
+	@echo "... LibuvCpp"
 	@echo "... rebuild_cache"
 	@echo "... Acceptor.o"
 	@echo "... Acceptor.i"

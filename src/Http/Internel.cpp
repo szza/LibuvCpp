@@ -98,6 +98,7 @@ bool http::splitLineBySpace(const std::string& line, std::vector<std::string>& d
 }
 
 bool http::appendHeaderPair(const std::string& line, std::unordered_map<std::string, std::string>& headers) { 
+  // 在请求头中，以 ": " 分割 key-value
   auto curr = line.find(": ");
   if(curr == std::string::npos) 
     return false;

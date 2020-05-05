@@ -13,7 +13,7 @@ class Buffer;
 
 class Connection : public std::enable_shared_from_this<Connection> { 
 public:
-  Connection(EventLoop* loop, const std::string& name, std::shared_ptr<uv_tcp_t> client, bool isConnected=true);
+  Connection(EventLoop* loop, const std::string& name, std::shared_ptr<uv_tcp_t> client, bool isConnected=true, bool keepLive=false);
   ~Connection(); 
 
   void close();
@@ -44,7 +44,7 @@ private:
   std::shared_ptr<uv_tcp_t>     client_;
   std::shared_ptr<std::string>  name_;
   std::vector<char>             data_;
-  std::shared_ptr<Buffer>       buffer_;
+  std::shared_ptr<Buffer>       buffer_; // 一个 connection 对应一个 buffer_
   std::weak_ptr<ConnectionItem> item_;
   
   OnMessageCallback     onMessageCallback_;
@@ -52,6 +52,7 @@ private:
   CloseCompleteCallback closeCompleteCallback_; // 关闭完成执行的函数
 
   bool connected_;
+  bool keepLive_;
 };
 } // namespace uv
 

@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 project(LibuvCpp)
 
-aux_source_directory(. SRC1)
+aux_source_directory(. SRC)
 
-add_library(libuvCpp ${SRC1})
-
+add_library(LibuvCpp ${SRC})

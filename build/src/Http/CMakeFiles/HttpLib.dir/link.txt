@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../lib/libHttpLib.a  CMakeFiles/HttpLib.dir/HttpClient.cpp.o CMakeFiles/HttpLib.dir/HttpServer.cpp.o CMakeFiles/HttpLib.dir/Internel.cpp.o CMakeFiles/HttpLib.dir/Request.cpp.o CMakeFiles/HttpLib.dir/Response.cpp.o
+/usr/bin/ranlib ../../lib/libHttpLib.a

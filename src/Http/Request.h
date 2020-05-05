@@ -10,18 +10,22 @@ namespace http {
 class Request { 
 public:
   Request(HttpVersion version=HttpVersion::Http1_1, RequestMethon method=RequestMethon::Get);
-  ~Request();
 
-  template<typename String> void swapContent(String&& str);
-  template<typename String> void addHeaderPair(String&& key, String&& value);
-  template<typename String> void appendUrlParam(String&& key, String&& value);
+  void addPair(const std::string& key, const std::string& value);
+  void addUrlParam(const std::string& key, const std::string& value);
 
-  template<typename String> void setPath(const String& path);
-  void setVersion(HttpVersion version) { version_ = version; }
-  void setMethod(RequestMethon method) { method_  = method;  }
+  void setPath(const std::string& path);
+  void setContent(const std::string& str) { content_ = str;     }
+  void setContent(const char* str)        { content_ = std::string(str); }
+  void setVersion(HttpVersion version)    { version_ = version; }
+  void setMethod(RequestMethon method)    { method_  = method;  }
+  static 
+  void setRootPath(const char* root)   { rootPath_ = root;}
 
-  template<typename String> const std::string& headerMap(String&& key) const;
-  template<typename String> const std::string& urlParams(String&& key) const; 
+  std::string headerMap(const std::string& key) const;
+  std::string urlParams(const std::string& key) const;
+  std::string headerMap(const char* key) const; 
+  std::string urlParams(const char* key) const;
 
   const std::string& content() const { return content_; }
   const std::string& value()   const { return value_;   }
@@ -35,18 +39,19 @@ public:
   ParseResult parseAndComplete(const std::string& data);
 
   static std::string methodToStr(RequestMethon method);
-  template<typename String>
-  static RequestMethon strToMethod(String&& str);
-private:
+  
+  static RequestMethon strToMethod(const std::string& str);
   void encodePath(std::string& path);
   bool parseUrl(const std::string& url);
   bool parsePath(const std::string& path);
 
+private:
   HttpVersion   version_;
   RequestMethon method_;
+  static const char* rootPath_;
+
   std::string   path_;
   std::string   value_;
-
   std::unordered_map<std::string, std::string> urlParams_;
   std::unordered_map<std::string, std::string> headers_;
   std::string content_;

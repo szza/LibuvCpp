@@ -90,7 +90,7 @@ server_EXTERNAL_OBJECTS =
 
 bin/server: example/CMakeFiles/server.dir/echo/Server.cc.o
 bin/server: example/CMakeFiles/server.dir/build.make
-bin/server: lib/liblibuvCpp.a
+bin/server: lib/libLibuvCpp.a
 bin/server: example/CMakeFiles/server.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/server"
 	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build/example && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/server.dir/link.txt --verbose=$(VERBOSE)

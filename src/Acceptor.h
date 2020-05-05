@@ -20,7 +20,6 @@ public:
   EventLoop* loop()   const { return loop_;     }
   bool isListening()  const { return listened_; }
   bool isTcpNoDelay() const { return tcpNoDelay_;}
-  
 private:
   void onNewConnect(std::shared_ptr<uv_tcp_t> client);
   

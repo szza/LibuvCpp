@@ -1,0 +1,33 @@
+[2020-05-05 02:30:00.941958][INFO][140452086753088][/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/src/TcpServer.cpp:onAccept:56] [Server] New Connection(192.168.0.105:64553)
+[2020-05-05 02:30:00.942217][INFO][140452086753088][/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/src/Http/HttpServer.cpp:onMessageRecv:20] [HttpServer] Receive data:
+GET /test HTTP/1.1
+Host: 192.168.0.108:5432
+Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36 Edg/81.0.416.68
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+
+
+[2020-05-05 02:30:00.942341][WARN][140452086753088][/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/src/Http/Request.cpp:parseAndComplete:133] Can't find <Content-Length: num> in request headers
+[2020-05-05 02:30:00.942385][INFO][140452086753088][/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/src/Http/HttpServer.cpp:onMessageRecv:56] [HttpServer] Response data:
+HTTP/1.1 200 OK
+Server: libuvCpp
+
+test~
+[2020-05-05 02:30:00.949570][INFO][140452086753088][/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/src/TcpServer.cpp:onAccept:56] [Server] New Connection(192.168.0.105:64554)
+[2020-05-05 02:30:00.996065][INFO][140452086753088][/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/src/Http/HttpServer.cpp:onMessageRecv:20] [HttpServer] Receive data:
+GET /favicon.ico HTTP/1.1
+Host: 192.168.0.108:5432
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36 Edg/81.0.416.68
+Accept: image/webp,image/apng,image/*,*/*;q=0.8
+Referer: http://192.168.0.108:5432/test
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+
+
+[2020-05-05 02:30:00.996164][WARN][140452086753088][/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/src/Http/Request.cpp:parseAndComplete:133] Can't find <Content-Length: num> in request headers
+[2020-05-05 02:30:00.996172][WARN][140452086753088][/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/src/Http/HttpServer.cpp:onMessageRecv:69] [HttpServer]Request(GET /favicon.ico)not exist

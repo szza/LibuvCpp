@@ -15,7 +15,7 @@ struct WriteReq {
 
 } // unname - namespace 
 
-Connection::Connection(EventLoop* loop,const std::string& name, std::shared_ptr<uv_tcp_t> client, bool isConnected)
+Connection::Connection(EventLoop* loop,const std::string& name, std::shared_ptr<uv_tcp_t> client, bool isConnected, bool keepLive)
 : loop_(loop),
   client_(client), 
   name_(std::make_shared<std::string>(name)),
@@ -23,10 +23,15 @@ Connection::Connection(EventLoop* loop,const std::string& name, std::shared_ptr<
   onMessageCallback_(nullptr),
   onCloseCallback_(nullptr),
   closeCompleteCallback_(nullptr),
-  connected_(isConnected)
+  connected_(isConnected),
+  keepLive_(keepLive)
 { 
   client_->data = static_cast<void*>(this);
-
+  if(keepLive_) 
+  { 
+    uv_tcp_keepalive(client_.get(), 1, 0);
+  }
+  
   uv_read_start((uv_stream_t*)client_.get(), 
                 [](uv_handle_t* handle, size_t suggested_size, uv_buf_t* buf)
                 {
@@ -52,7 +57,7 @@ void Connection::onMessageRecv(uv_stream_t* client, ssize_t nread, const uv_buf_
   else if(nread < 0) 
   { 
     self->setConnectStatus(false);
-    LOG_WARN<<"[Connection] Message receive fail("<<uv_strerror(nread)<<')';
+    LOG_WARN<<"Message receive fail("<<uv_strerror(nread)<<')';
     if(nread != UV_EOF) { 
       self->onClientClose();  
       return;
@@ -80,7 +85,6 @@ void Connection::onMessage(const char* buffer, ssize_t size) {
   {
     onMessageCallback_(shared_from_this(), buffer, size);
   }
-  // delete[] buffer;
 }
 
 void Connection::onClientClose() { 
@@ -146,7 +150,7 @@ void Connection::write(const char* buf, ssize_t size, WriteCompleteCallback cb) 
                   });
 
     if(err !=0) { 
-      LOG_WARN<<"[Connection] Write data error: "<<uv_strerror(err);;
+      LOG_WARN<<"Write data error: "<<uv_strerror(err);;
       if(cb) { 
         struct WriteInfo info {const_cast<char*>(buf),static_cast<size_t>(size), err};
         cb(info);
@@ -155,7 +159,7 @@ void Connection::write(const char* buf, ssize_t size, WriteCompleteCallback cb) 
   }
   else 
   {
-    LOG_WARN<<"[Connection] Connection has disconnected.";
+    LOG_WARN<<"Connection has disconnected.";
     if(cb) { 
       struct WriteInfo info {const_cast<char*>(buf), static_cast<size_t>(size), err};
       cb(info);

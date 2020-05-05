@@ -126,6 +126,21 @@ helloWorld/fast:
 .PHONY : helloWorld/fast
 
 # Convenience name for target.
+example/CMakeFiles/httpServer_test.dir/rule:
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f CMakeFiles/Makefile2 example/CMakeFiles/httpServer_test.dir/rule
+.PHONY : example/CMakeFiles/httpServer_test.dir/rule
+
+# Convenience name for target.
+httpServer_test: example/CMakeFiles/httpServer_test.dir/rule
+
+.PHONY : httpServer_test
+
+# fast build rule for target.
+httpServer_test/fast:
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f example/CMakeFiles/httpServer_test.dir/build.make example/CMakeFiles/httpServer_test.dir/build
+.PHONY : httpServer_test/fast
+
+# Convenience name for target.
 example/CMakeFiles/async.dir/rule:
 	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f CMakeFiles/Makefile2 example/CMakeFiles/async.dir/rule
 .PHONY : example/CMakeFiles/async.dir/rule
@@ -170,21 +185,6 @@ server/fast:
 	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f example/CMakeFiles/server.dir/build.make example/CMakeFiles/server.dir/build
 .PHONY : server/fast
 
-# Convenience name for target.
-example/CMakeFiles/radix.dir/rule:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f CMakeFiles/Makefile2 example/CMakeFiles/radix.dir/rule
-.PHONY : example/CMakeFiles/radix.dir/rule
-
-# Convenience name for target.
-radix: example/CMakeFiles/radix.dir/rule
-
-.PHONY : radix
-
-# fast build rule for target.
-radix/fast:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f example/CMakeFiles/radix.dir/build.make example/CMakeFiles/radix.dir/build
-.PHONY : radix/fast
-
 HelloWorld/HelloWorld.o: HelloWorld/HelloWorld.cc.o
 
 .PHONY : HelloWorld/HelloWorld.o
@@ -212,32 +212,32 @@ HelloWorld/HelloWorld.cc.s:
 	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f example/CMakeFiles/helloWorld.dir/build.make example/CMakeFiles/helloWorld.dir/HelloWorld/HelloWorld.cc.s
 .PHONY : HelloWorld/HelloWorld.cc.s
 
-RadixTree/radixTree.o: RadixTree/radixTree.cpp.o
+Http/Server.o: Http/Server.cpp.o
 
-.PHONY : RadixTree/radixTree.o
+.PHONY : Http/Server.o
 
 # target to build an object file
-RadixTree/radixTree.cpp.o:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f example/CMakeFiles/radix.dir/build.make example/CMakeFiles/radix.dir/RadixTree/radixTree.cpp.o
-.PHONY : RadixTree/radixTree.cpp.o
+Http/Server.cpp.o:
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f example/CMakeFiles/httpServer_test.dir/build.make example/CMakeFiles/httpServer_test.dir/Http/Server.cpp.o
+.PHONY : Http/Server.cpp.o
 
-RadixTree/radixTree.i: RadixTree/radixTree.cpp.i
+Http/Server.i: Http/Server.cpp.i
 
-.PHONY : RadixTree/radixTree.i
+.PHONY : Http/Server.i
 
 # target to preprocess a source file
-RadixTree/radixTree.cpp.i:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f example/CMakeFiles/radix.dir/build.make example/CMakeFiles/radix.dir/RadixTree/radixTree.cpp.i
-.PHONY : RadixTree/radixTree.cpp.i
+Http/Server.cpp.i:
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f example/CMakeFiles/httpServer_test.dir/build.make example/CMakeFiles/httpServer_test.dir/Http/Server.cpp.i
+.PHONY : Http/Server.cpp.i
 
-RadixTree/radixTree.s: RadixTree/radixTree.cpp.s
+Http/Server.s: Http/Server.cpp.s
 
-.PHONY : RadixTree/radixTree.s
+.PHONY : Http/Server.s
 
 # target to generate assembly for a file
-RadixTree/radixTree.cpp.s:
-	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f example/CMakeFiles/radix.dir/build.make example/CMakeFiles/radix.dir/RadixTree/radixTree.cpp.s
-.PHONY : RadixTree/radixTree.cpp.s
+Http/Server.cpp.s:
+	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build && $(MAKE) -f example/CMakeFiles/httpServer_test.dir/build.make example/CMakeFiles/httpServer_test.dir/Http/Server.cpp.s
+.PHONY : Http/Server.cpp.s
 
 base/async_.o: base/async_.cc.o
 
@@ -329,16 +329,16 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... helloWorld"
+	@echo "... httpServer_test"
 	@echo "... async"
 	@echo "... client"
 	@echo "... server"
-	@echo "... radix"
 	@echo "... HelloWorld/HelloWorld.o"
 	@echo "... HelloWorld/HelloWorld.i"
 	@echo "... HelloWorld/HelloWorld.s"
-	@echo "... RadixTree/radixTree.o"
-	@echo "... RadixTree/radixTree.i"
-	@echo "... RadixTree/radixTree.s"
+	@echo "... Http/Server.o"
+	@echo "... Http/Server.i"
+	@echo "... Http/Server.s"
 	@echo "... base/async_.o"
 	@echo "... base/async_.i"
 	@echo "... base/async_.s"

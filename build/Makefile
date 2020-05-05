@@ -111,17 +111,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named libuvCpp
+# Target rules for targets named LibuvCpp
 
 # Build rule for target.
-libuvCpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 libuvCpp
-.PHONY : libuvCpp
+LibuvCpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 LibuvCpp
+.PHONY : LibuvCpp
 
 # fast build rule for target.
-libuvCpp/fast:
-	$(MAKE) -f src/CMakeFiles/libuvCpp.dir/build.make src/CMakeFiles/libuvCpp.dir/build
-.PHONY : libuvCpp/fast
+LibuvCpp/fast:
+	$(MAKE) -f src/CMakeFiles/LibuvCpp.dir/build.make src/CMakeFiles/LibuvCpp.dir/build
+.PHONY : LibuvCpp/fast
+
+#=============================================================================
+# Target rules for targets named HttpLib
+
+# Build rule for target.
+HttpLib: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 HttpLib
+.PHONY : HttpLib
+
+# fast build rule for target.
+HttpLib/fast:
+	$(MAKE) -f src/Http/CMakeFiles/HttpLib.dir/build.make src/Http/CMakeFiles/HttpLib.dir/build
+.PHONY : HttpLib/fast
 
 #=============================================================================
 # Target rules for targets named helloWorld
@@ -135,6 +148,19 @@ helloWorld: cmake_check_build_system
 helloWorld/fast:
 	$(MAKE) -f example/CMakeFiles/helloWorld.dir/build.make example/CMakeFiles/helloWorld.dir/build
 .PHONY : helloWorld/fast
+
+#=============================================================================
+# Target rules for targets named httpServer_test
+
+# Build rule for target.
+httpServer_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 httpServer_test
+.PHONY : httpServer_test
+
+# fast build rule for target.
+httpServer_test/fast:
+	$(MAKE) -f example/CMakeFiles/httpServer_test.dir/build.make example/CMakeFiles/httpServer_test.dir/build
+.PHONY : httpServer_test/fast
 
 #=============================================================================
 # Target rules for targets named async
@@ -175,19 +201,6 @@ server/fast:
 	$(MAKE) -f example/CMakeFiles/server.dir/build.make example/CMakeFiles/server.dir/build
 .PHONY : server/fast
 
-#=============================================================================
-# Target rules for targets named radix
-
-# Build rule for target.
-radix: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 radix
-.PHONY : radix
-
-# fast build rule for target.
-radix/fast:
-	$(MAKE) -f example/CMakeFiles/radix.dir/build.make example/CMakeFiles/radix.dir/build
-.PHONY : radix/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -196,12 +209,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... libuvCpp"
+	@echo "... LibuvCpp"
+	@echo "... HttpLib"
 	@echo "... helloWorld"
+	@echo "... httpServer_test"
 	@echo "... async"
 	@echo "... client"
 	@echo "... server"
-	@echo "... radix"
 .PHONY : help
 
 

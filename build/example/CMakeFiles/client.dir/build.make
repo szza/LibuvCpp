@@ -90,7 +90,7 @@ client_EXTERNAL_OBJECTS =
 
 bin/client: example/CMakeFiles/client.dir/echo/Client.cc.o
 bin/client: example/CMakeFiles/client.dir/build.make
-bin/client: lib/liblibuvCpp.a
+bin/client: lib/libLibuvCpp.a
 bin/client: example/CMakeFiles/client.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/client"
 	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build/example && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/client.dir/link.txt --verbose=$(VERBOSE)

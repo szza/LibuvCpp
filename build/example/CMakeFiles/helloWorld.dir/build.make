@@ -90,7 +90,7 @@ helloWorld_EXTERNAL_OBJECTS =
 
 bin/helloWorld: example/CMakeFiles/helloWorld.dir/HelloWorld/HelloWorld.cc.o
 bin/helloWorld: example/CMakeFiles/helloWorld.dir/build.make
-bin/helloWorld: lib/liblibuvCpp.a
+bin/helloWorld: lib/libLibuvCpp.a
 bin/helloWorld: example/CMakeFiles/helloWorld.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/helloWorld"
 	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build/example && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/helloWorld.dir/link.txt --verbose=$(VERBOSE)

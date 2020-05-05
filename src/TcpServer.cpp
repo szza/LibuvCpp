@@ -12,11 +12,12 @@ TcpServer::TcpServer(EventLoop* loop, bool tcpNoDelay)
   onMessageCallback_(nullptr),
   onNewConnectionCallback_(nullptr),
   onCloseConnectionCallback_(nullptr),
-  timerwheel_(loop)
+  timerwheel_(loop),
+  keepLive_(false)
 { }
 
 TcpServer::~TcpServer() { 
-  
+
 }
 
 int TcpServer::bindAndListen(const char* ip, int port) { 
@@ -54,7 +55,7 @@ void TcpServer::onAccept(EventLoop* loop, std::shared_ptr<uv_tcp_t> client) {
 
   LOG_INFO<<"[Server] New Connection("<<ipAndPort<<')';
 
-  std::shared_ptr<Connection> newConn = std::make_shared<Connection>(loop_, ipAndPort, client, true);
+  std::shared_ptr<Connection> newConn = std::make_shared<Connection>(loop_, ipAndPort, client, true, keepLive_);
   if(newConn) { 
     newConn->setMessageCallback(std::bind(&TcpServer::onMessage, 
                                           this, 

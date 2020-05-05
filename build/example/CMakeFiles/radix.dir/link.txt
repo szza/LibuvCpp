@@ -1,1 +1,1 @@
-/usr/bin/c++   -g -Wall   CMakeFiles/radix.dir/RadixTree/radixTree.cpp.o  -o ../bin/radix -rdynamic ../lib/liblibuvCpp.a -luv -lpthread 
+/usr/bin/c++   -g -Wall   CMakeFiles/radix.dir/RadixTree/radixTree.cpp.o  -o ../bin/radix ../lib/libLibuvCpp.a -luv -lpthread 

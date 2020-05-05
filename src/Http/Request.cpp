@@ -1,7 +1,10 @@
-#include "Http/Request.h"
+#include "src/Http/Request.h"
+#include "src/NanoLog.h"
 
 using namespace uv;
 using namespace uv::http;
+
+const char* Request::rootPath_ = "/";
 
 Request::Request(HttpVersion version, RequestMethon method)
 : version_(version), 
@@ -9,32 +12,34 @@ Request::Request(HttpVersion version, RequestMethon method)
 { 
 
 }
-
-template<typename String> 
-void Request::swapContent(String&& str) { 
-  content_.swap(std::forward<String>(str));
+ 
+void Request::addPair(const std::string& key, const std::string& value) { 
+  headers_[key] = value;
 }
 
-template<typename String> 
-void Request::addHeaderPair(String&& key, String&& value) { 
-  headers_[std::forward<String>(key)] = std::forward<String>(value);
-}
-
-template<typename String> 
-const std::string& Request::headerMap(String&& key) const { 
-  auto it = headers_.find(std::forward<String>(key));
+ 
+std::string Request::headerMap(const std::string& key) const { 
+  auto it = headers_.find(key);
   return it == headers_.end() ? "" : it->second;
 }
 
-template<typename String> 
-void Request::appendUrlParam(String&& key, String&& value) { 
-  urlParams_.emplace(std::forward<String>(key), std::forward<String>(value)); 
+std::string Request::headerMap(const char* key) const { 
+  std::string k (key);
+  return headerMap(k);
+} 
+
+void Request::addUrlParam(const std::string& key, const std::string& value) { 
+  urlParams_.emplace(key, value); 
 }
 
-template<typename String> 
-const std::string& Request::urlParams(String&& key) const { 
-  auto it = urlParams_.find(std::forward<String>(key));
+std::string Request::urlParams(const std::string& key) const { 
+  auto it = urlParams_.find(key);
   return it == urlParams_.end() ? "" : it->second;
+}
+
+std::string Request::urlParams(const char* key) const { 
+  std::string k(key);
+  return urlParams(k);
 }
 
 void Request::encode(std::string& data) {
@@ -62,6 +67,16 @@ void Request::encode(std::string& data) {
 }
 
 
+// GET /some HTTP/1.1
+// Host: 192.168.0.108:5432
+// Connection: keep-alive
+// Cache-Control: max-age=0
+// Upgrade-Insecure-Requests: 1
+// User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36 Edg/81.0.416.68
+// Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+// Accept-Encoding: gzip, deflate
+// Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+
 ParseResult Request::parse(const std::string& data) { 
   std::vector<std::string> headerList;
   int pos = splitRequestByCRLF(data, headerList);
@@ -70,14 +85,17 @@ ParseResult Request::parse(const std::string& data) {
     return ParseResult::Fail;
   }
 
+  // 解析请求行
   if(!parseUrl(headerList[0])) 
   { 
+    LOG_WARN<<"Fail to parse request Line.";
     return ParseResult::Error;
   }
-
-  for(size_t i=0; i < headerList.size(); ++i) { 
+  
+  for(size_t i=1; i < headerList.size(); ++i) { 
     if(!appendHeaderPair(headerList[i], headers_)) 
     { 
+       LOG_WARN<<"Fail to parse request header.";
       return ParseResult::Error;
     }
   }
@@ -89,8 +107,10 @@ ParseResult Request::parse(const std::string& data) {
 
 ParseResult Request::parseAndComplete(const std::string& data) { 
   ParseResult st = parse(data);
-  if(st != ParseResult::Success) 
+  if(st != ParseResult::Success) {
+    LOG_WARN<<"Fail to parse origin data from browser";
     return st;
+  }
 
   auto it = headers_.find("Content-Length");
   if(it == headers_.end()) 
@@ -99,11 +119,18 @@ ParseResult Request::parseAndComplete(const std::string& data) {
   }
 
   if(it != headers_.end()) {
-    return (std::stoul(it->second) == content_.size()) ? 
-            ParseResult::Success : 
-            ParseResult::Fail;
+    if(std::stoul(it->second) == content_.size()) 
+    { 
+      return ParseResult::Success;
+    }
+    else 
+    { 
+      LOG_WARN<<"the size of content real size: "<<content_.length()<<" but in theory shoubd be: "<<it->second;
+      return ParseResult::Fail;
+    }
   }
 
+  LOG_WARN<<"Can't find <Content-Length: num> in request headers";
   return st;
 }
 
@@ -121,12 +148,9 @@ std::string Request::methodToStr(RequestMethon method) {
   case RequestMethon::Patch  : return "PATCH";
   default:                     return "Invalid";
   }
-
- 
 }
 
-template<typename String>
-RequestMethon Request::strToMethod(String&& str) { 
+RequestMethon Request::strToMethod(const std::string& str) { 
   if (str == "GET")
   {
     return RequestMethon::Get;
@@ -205,6 +229,7 @@ void Request::encodePath(std::string& path) {
   path.pop_back(); // 弹出最后一个 `&`
 }
 
+// GET /some HTTP/1.1
 bool Request::parseUrl(const std::string& url) { 
   std::vector<std::string> dest;
   splitLineBySpace(url, dest);
@@ -223,44 +248,53 @@ bool Request::parseUrl(const std::string& url) {
   return true;
 }
 
+// Get    /cgi-bin/my_cgi?uin=12345&appID=20&content=xxx
+// post  POST /cgi-bin/my_cgi HTTP/1.1
 bool Request::parsePath(const std::string& path) {
-  urlParams_.clear();
-  urlParams_.reserve(1024);
-
+  
+  urlParams_.reserve(128);
   auto pos = path.find(": ");
   if(pos != Npos) {
-    std::string temp(path, 0, pos+1); 
-    path_.swap(temp);
-
-    std::string value(path, pos+1, path.size() -1 -pos);
-    value_.swap(value);
+    
+    path_  = std::move(std::string(path, 0, pos+1));
+    value_ = std::move(std::string(path, pos+1, path.size() -1 -pos));
     return true;
   }
 
   pos = path.find('?');
-  std::string temp (path, 0, pos); 
-  path_.swap(temp);
+  // Post请求
+  // 不带参数的 Get 请求
+  if(pos == Npos) 
+  { 
+    path_ = path;
+  }
+  else 
+  {
+    // 带参数的Get请求
+    path_= std::move(std::string(path, 0, pos));
+    //Get 请求
+    for(size_t i=pos; i < path.length();) { 
+      size_t p = path.find('=', i);
 
-  for(size_t i=pos; i < path.length();) { 
-    size_t p = path.find('=', i);
+      if(p == Npos || p - i < 1) 
+      { 
+        break;
+      }
 
-    if(p == Npos || p - i < 1) { 
-      break;
+      std::string key(path, i+1, p-i-1);
+      i = p;
+      p = path.find('&', i);
+      if(p == Npos) 
+      { 
+        p = path.size();
+      }
+
+      if(p - i < 1)  
+        break;
+
+      std::string value(path, i+1, p-i-1);
+      urlParams_.emplace(std::move(key), std::move(value));
     }
-
-    std::string key(path, i+1, p-i-1);
-    i =p;
-    p = path.find('&', i);
-    if(p == Npos) 
-    { 
-      p = path.size();
-    }
-
-    if(p - i < 1)  
-      break;
-
-    std::string value(path, i+1, p-i-1);
-    urlParams_.emplace(std::move(key), std::move(value));
   }
 
   return true;

@@ -90,7 +90,7 @@ radix_EXTERNAL_OBJECTS =
 
 bin/radix: example/CMakeFiles/radix.dir/RadixTree/radixTree.cpp.o
 bin/radix: example/CMakeFiles/radix.dir/build.make
-bin/radix: lib/liblibuvCpp.a
+bin/radix: lib/libLibuvCpp.a
 bin/radix: example/CMakeFiles/radix.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/radix"
 	cd /media/szz/Others/Self_study/Cpp/MyPro/LibuvCpp/build/example && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/radix.dir/link.txt --verbose=$(VERBOSE)

@@ -3,20 +3,24 @@
 #include <string.h>
 
 #include <string>
+#include <unordered_map>
 
 int main(int argc, char const *argv[]) {
+  std::cout<<std::boolalpha;
   
-  const char* src = "Hello Cpp";
+  std::unordered_map<const char*, int> map_;
 
-  std::string buf;
-  buf.resize(20);
-  ::memcpy(&buf[0], src, ::strlen(src)+1);
-  std::cout<<"resize: "<<buf<<std::endl;
+  const char* src1 = "some";
+  const char* src2 = "some";
+  std::string src3("some");
 
-  std::string buff;
-  buff.reserve(20);
-  
-  ::memcpy(&buff[0], src, ::strlen(src)+1);
-  std::cout<<"reserve: "<<buff<<std::endl;
-  return 0;
+  map_.emplace(src1, 1);
+
+  auto iter2 = map_.find(src2);
+  auto iter3 = map_.find(src3.c_str());
+
+
+  std::cout<<"can find:"<<src1<<" ? "<<(iter2 != map_.end())<<std::endl;
+  std::cout<<"can find:"<<src1<<" ? "<<(iter3 != map_.end())<<std::endl;
+
 }

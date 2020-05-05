@@ -1,4 +1,4 @@
-#include "Http/Response.h" 
+#include "src/Http/Response.h" 
 
 using namespace uv;
 using namespace uv::http;
@@ -13,20 +13,24 @@ Response::~Response()
 
 }
 
-template<typename String> 
-void Response::addHeaderPair(String&& key, String&& value) { 
-  headers_.emplace(std::forward<String>(key), std::forward<String>(value));
+ 
+void Response::addPair(const std::string& key, const std::string& value) { 
+  headers_.emplace(key, value);
 }
 
-template<typename String> 
-const std::string& Response::headerMap(String&& key) const { 
-  auto iter = headers_.find(std::forward<String>(key));
+void Response::addPair(const char* key, const char* value) { 
+  headers_.emplace(std::string(key), std::string(value));
+}
+
+ 
+const std::string& Response::headerMap(const std::string& key) const { 
+  auto iter = headers_.find(key);
   return  iter == headers_.end() ? "" : iter->second;
 }
 
-template<typename String> 
-void Response::swapContent(String&& str) { 
-  content_.swap(std::forward<String>(str));
+void Response::setContent(const char* buf) { 
+  std::string data(buf);
+  content_ .swap(data);
 }
 
 void Response::encode(std::string& data) { 

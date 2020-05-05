@@ -175,6 +175,14 @@ src/Http/RadixTree.h
 ../src/Http/src/Http/RadixTree.h
 src/TcpServer.h
 ../src/Http/src/TcpServer.h
+unordered_map
+-
+map
+-
+string
+-
+array
+-
 
 ../src/Http/Internel.h
 unordered_map
