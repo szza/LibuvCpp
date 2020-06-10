@@ -16,7 +16,7 @@
 **编译**
 
 ```bash
-    mdir build && cd build 
+    mkdir build && cd build 
     cmake .. && make 
 ```
 **运行测试案例**
