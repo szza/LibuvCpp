@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../lib/libLibuvCpp.a  CMakeFiles/LibuvCpp.dir/Acceptor.cpp.o CMakeFiles/LibuvCpp.dir/Async.cpp.o CMakeFiles/LibuvCpp.dir/Buffer.cpp.o CMakeFiles/LibuvCpp.dir/Connection.cpp.o CMakeFiles/LibuvCpp.dir/EventLoop.cpp.o CMakeFiles/LibuvCpp.dir/NanoLog.cpp.o CMakeFiles/LibuvCpp.dir/Packet.cpp.o CMakeFiles/LibuvCpp.dir/Signal.cpp.o CMakeFiles/LibuvCpp.dir/TcpClient.cpp.o CMakeFiles/LibuvCpp.dir/TcpServer.cpp.o CMakeFiles/LibuvCpp.dir/Timer.cpp.o CMakeFiles/LibuvCpp.dir/TimerWheel.cpp.o
-/usr/bin/ranlib ../lib/libLibuvCpp.a

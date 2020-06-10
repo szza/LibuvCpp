@@ -1,1 +1,0 @@
-/usr/bin/c++   -g -Wall   CMakeFiles/server.dir/echo/Server.cc.o  -o ../bin/server ../lib/libLibuvCpp.a -luv -lpthread 

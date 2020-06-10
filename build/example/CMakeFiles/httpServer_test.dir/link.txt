@@ -1,1 +1,0 @@
-/usr/bin/c++   -g -Wall   CMakeFiles/httpServer_test.dir/Http/Server.cpp.o  -o ../bin/httpServer_test ../lib/libLibuvCpp.a ../lib/libHttpLib.a -luv -lpthread 

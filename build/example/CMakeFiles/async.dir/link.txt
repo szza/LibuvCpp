@@ -1,1 +1,0 @@
-/usr/bin/c++   -g -Wall   CMakeFiles/async.dir/base/async_.cc.o  -o ../bin/async ../lib/libLibuvCpp.a -luv 
