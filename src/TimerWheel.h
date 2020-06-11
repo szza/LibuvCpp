@@ -10,21 +10,24 @@
 
 namespace uv {
 
+// 记录着连接
+// 但是并不占用计数
 class ConnectionItem : public std::enable_shared_from_this<ConnectionItem> { 
 public:
   ConnectionItem(ConnectionPtr conn)
-  : conn_(conn) 
+  : w_connPtr_(conn) 
   { }
 
   ~ConnectionItem() { 
-    ConnectionPtr internel = conn_.lock(); 
+    ConnectionPtr internel = w_connPtr_.lock(); 
+    // 如果这个连接还没有关闭，那么就关闭
     if(internel) { 
       internel->onClientClose();
     }
   }
 
 private:
-  std::weak_ptr<Connection> conn_;
+  std::weak_ptr<Connection> w_connPtr_;
 
 }; // class ConnectionItem
 

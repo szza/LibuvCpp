@@ -11,11 +11,13 @@ TimerWheel::TimerWheel(EventLoop* loop, uint32_t timeout)
 void TimerWheel::wheelCallback() { 
   if(! expired_) 
     return;
-  
+  // 这个函数一秒执行一次
+  // index_ 每过一秒就刷新一次 ++index
   if(++index_ == expired_) { 
     index_ =0;
   }
-
+  // clear则会是的引用计数减少1到0，那么对应的连接会被关闭。
+  //
   wheels_[index_].clear();
 }
 
@@ -27,22 +29,22 @@ void TimerWheel::start() {
   }
 }
 
-void TimerWheel::insert(ConnectionPtr conn) { 
+void TimerWheel::insert(ConnectionPtr connPtr) { 
   if(!expired_)
     return;
-  
-  std::shared_ptr<ConnectionItem> con;
-  if(con) { 
-    wheels_[index_].insert(con);
+
+  std::shared_ptr<ConnectionItem> conn = connPtr->Item().lock();
+  if(conn) { 
+    wheels_[index_].insert(conn);
   }
 }
 
-void TimerWheel::insertNew(ConnectionPtr conntion) { 
+void TimerWheel::insertNew(ConnectionPtr connPtr) { 
   if(!expired_) 
     return;
   
-  std::shared_ptr<ConnectionItem> conn = std::make_shared<ConnectionItem>(conntion); 
-  conntion->setConnectionItem(conn);
+  std::shared_ptr<ConnectionItem> conn = std::make_shared<ConnectionItem>(connPtr); 
+  connPtr->setConnectionItem(conn);
   wheels_[index_].insert(conn);
 }
 
