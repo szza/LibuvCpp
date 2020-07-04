@@ -18,7 +18,9 @@ int EventLoop::runLoop(uv_run_mode mode) {
   threadId_ = std::this_thread::get_id();
   running_ = true;
 
-  return uv_run(loop_, mode);
+  uv_run(loop_, mode);
+
+  return 0;
 }
 
 void EventLoop::stopLoop() { 

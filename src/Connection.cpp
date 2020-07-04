@@ -36,7 +36,7 @@ Connection::Connection(EventLoop* loop,const std::string& name, std::shared_ptr<
                 [](uv_handle_t* handle, size_t suggested_size, uv_buf_t* buf)
                 {
                   Connection* self = static_cast<Connection*>(handle->data);
-                  buf->base = self->mallocBuff(suggested_size);
+                  buf->base = self->allocate(suggested_size);
                   buf->len  = suggested_size;
                 },
                 Connection::onMessageRecv);
@@ -176,7 +176,7 @@ void Connection::writeInLoop(const char* buf, ssize_t size, WriteCompleteCallbac
     });
 } 
 
-char* Connection::mallocBuff(size_t size) { 
+char* Connection::allocate(size_t size) { 
   data_.resize(size);
   return data_.data();
 }

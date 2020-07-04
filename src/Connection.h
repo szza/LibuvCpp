@@ -38,7 +38,7 @@ private:
   void onMessage(const char* buffer, int64_t size); 
   void closeComplete(); 
 
-  char* mallocBuff(size_t size);
+  char* allocate(size_t size);
 
   EventLoop*                    loop_;
   std::shared_ptr<uv_tcp_t>     client_;
