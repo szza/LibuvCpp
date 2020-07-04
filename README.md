@@ -9,7 +9,7 @@
 + Signal：Libuv信号封装
 + `Timer/TimerWheel`：Libuv定时器封装
 + 设计了`CycleBuffer`来缓存数据
-+ 日志使用的是纳米级时延日志库[`NanoLog`](https://github.com/PlatformLab/NanoLog)
++ 日志使用的是基于C++11实现的高性能多线程日志库[`NanoLog`]
 
 详细使用可参考[src](./src)及[example](./example)
 
@@ -26,4 +26,4 @@
 ```
 
 ## 参考链接
-[uv-cpp](https://github.com/wlgq2/uv-cpp)
++ [libuv](https://github.com/libuv/libuv)
